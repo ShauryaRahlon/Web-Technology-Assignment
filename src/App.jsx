@@ -6,12 +6,13 @@ import TodoApp from './Comp'
 import Display from './Malls'
 import ShoppingCart from './Cart'
 import Calculate from './Calculator'
+import FlashingButton from './Color-change'
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <Display />
+      <FlashingButton second={"red"} />
     </>
   )
 }
