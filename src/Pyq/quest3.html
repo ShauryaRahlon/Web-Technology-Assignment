@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2>Command Console</h2>
+
+    <input type="text" id="commandInput" placeholder="Type command and press Enter">
+
+    <h3>Command History:</h3>
+    <div id="history"></div>
+
+    <script>
+
+        let commandCount = 0;
+
+        const input = document.getElementById("commandInput");
+        const historyDiv = document.getElementById("history");
+
+        input.addEventListener("keydown", function (event) {
+
+            if (event.key === "Enter") {
+
+                let command = input.value.trim();
+                input.value = "";
+
+                if (command === "") return;
+
+                commandCount++;
+
+                // Execute command
+                if (command === "color red") {
+                    document.body.style.backgroundColor = "red";
+                }
+                else if (command === "color blue") {
+                    document.body.style.backgroundColor = "blue";
+                }
+                else if (command === "reset") {
+                    document.body.style.backgroundColor = "white";
+                }
+                else if (command === "count") {
+                    alert("Total commands executed: " + commandCount);
+                }
+                else {
+                    alert("Invalid Command");
+                }
+
+                // Add to history
+                historyDiv.innerHTML += command + "<br>";
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
